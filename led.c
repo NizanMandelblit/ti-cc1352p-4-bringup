@@ -25,9 +25,11 @@
 #include <xdc/runtime/System.h>
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Task.h>
+#include <ti_printf.h>
 
 void *ledThread(void *arg0){
 while(1){
+//    bm_printf("led thread!\r\n");
 
     GPIO_write(CONFIG_GPIO_LED_0, CONFIG_LED_OFF);
 //    myDelay(12000000); /* Pretend to do something useful but time-consuming */

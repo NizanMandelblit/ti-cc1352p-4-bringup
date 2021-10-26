@@ -391,39 +391,11 @@ static int ee_vsprintf(char *buf, const char *fmt, va_list args)
 
 int bm_printf(const char *fmt, ...)
 {
-    UART_Handle uart;
-    UART_Params uartParams;
-
-    UART_init();
-
-    /* Create a UART with data processing off. */
-    UART_Params_init(&uartParams);
-    uartParams.writeDataMode =  UART_DATA_TEXT;
-    uartParams.readDataMode =  UART_DATA_TEXT;
-    uartParams.readReturnMode = UART_RETURN_NEWLINE;
-    uartParams.baudRate = 115200;
-    uartParams.readEcho=UART_ECHO_ON;
-
-    uart = UART_open(CONFIG_UART_0, &uartParams);
-
-       if (uart == NULL) {
-           /* UART_open() failed */
-           while (1);
-       }
-
-
-
-
-  // char buf[256],*p;
   char buf[1024]={'\0'};
-//  char *p; // Modified by Udi 15/May/2016 Suspect causing
-                      // stack corruption in coremark debug mode while printing state of size 666
   va_list args;
   va_start(args, fmt);
   ee_vsprintf(buf, fmt, args);
   va_end(args);
-  UART_write(uart,buf,sizeof(buf));
-
-  UART_close(uart);
+  uart_write_string(buf,strlen(buf));
 
 }

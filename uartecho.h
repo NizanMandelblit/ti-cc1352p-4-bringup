@@ -1,13 +1,12 @@
 /*
- * ti_printf.h
+ * uartecho.h
  *
  *  Created on: 26 ????? 2021
  *      Author: cellium
  */
 
-#ifndef TI_PRINTF_H_
-#define TI_PRINTF_H_
-
+#ifndef UARTECHO_H_
+#define UARTECHO_H_
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -16,6 +15,7 @@
 #include <string.h>
 
 /* Driver Header files */
+#include <ti/sysbios/BIOS.h>
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/UART.h>
 #include <ti/drivers/NVS.h>
@@ -24,10 +24,12 @@
 #include "ti_drivers_config.h"
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Task.h>
-#include <uartecho.h>
+#include <ti_printf.h>
+#include <ti/sysbios/knl/Semaphore.h>
 
 
-int bm_printf(const char *fmt, ...);
 
 
-#endif /* TI_PRINTF_H_ */
+void uart_write_string(const char * buff,size_t size);
+void uart_read_string( char * buff,size_t size);
+#endif /* UARTECHO_H_ */

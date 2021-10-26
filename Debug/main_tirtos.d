@@ -152,13 +152,16 @@ main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packa
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/Board.h
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Clock_TimerProxy.h
-main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Mailbox.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h
 main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
 main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IHeap.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
-main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Queue.h
+main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h
+main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h
 main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Queue.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h
+main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event.h
 main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
 main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
@@ -171,17 +174,6 @@ main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packa
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
 main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event__epilogue.h
-main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h
-main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Queue.h
-main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
-main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h
-main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
-main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event.h
 
 ../main_tirtos.c:
 
@@ -487,19 +479,25 @@ C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/kn
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Clock_TimerProxy.h:
 
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Mailbox.h:
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h:
 
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
 
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h:
 
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IHeap.h:
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h:
 
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h:
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Queue.h:
 
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h:
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event.h:
 
@@ -524,26 +522,4 @@ C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/kn
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event__epilogue.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h:
-
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
-
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h:
-
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h:
-
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h:
-
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Queue.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h:
-
-C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event.h:
 

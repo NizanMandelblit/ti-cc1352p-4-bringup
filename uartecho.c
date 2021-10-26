@@ -33,23 +33,7 @@
 /*
  *  ======== uartecho.c ========
  */
-#include <stdint.h>
-#include <stdbool.h>
-
-#include <stddef.h>
-#include <string.h>
-
-/* Driver Header files */
-#include <ti/drivers/GPIO.h>
-#include <ti/drivers/UART.h>
-#include <ti/drivers/NVS.h>
-#include <ti/drivers/nvs/NVSRAM.h>
-/* Driver configuration */
-#include "ti_drivers_config.h"
-#include <ti/sysbios/knl/Clock.h>
-#include <ti/sysbios/knl/Task.h>
-#include <ti_printf.h>
-
+#include <uartecho.h>
 
 /*
  *  ======== mainThread ========
@@ -61,17 +45,32 @@ int hex2int(char ch);
 char int2hex(unsigned long n,  char *outbuf);
 
 
+UART_Handle uart;
+
+// Semaphore_Struct my_semStruct;
+// Semaphore_Handle my_semHandle;
+//Semaphore_Params semParams;
+
+
 void *cliThread(void *arg0)
 {
 
-    bm_printf("%s %d %08x\n","avi fraind",4,0xff);
+
+
+//    /* Construct a Semaphore object to be use as a resource lock, inital count 1 */
+//       Semaphore_Params_init(&semParams);
+//       Semaphore_construct(&my_semStruct, 1, &semParams);
+//
+//       /* Obtain instance handle */
+//       my_semHandle = Semaphore_handle(&my_semStruct);
+//
 
 
     char        input;
     uint8_t  inputArray[BUFFSIZE];
     const char  echoPrompt[] = "\r\n Echoing characters:\r\n";
     uint32_t RAM_writeable_sector[RAM_WRITE]={0};
-    UART_Handle uart;
+
     UART_Params uartParams;
 
     /* Call driver init functions */
@@ -90,6 +89,9 @@ void *cliThread(void *arg0)
     uartParams.readEcho=UART_ECHO_ON;
 
 
+
+
+
     uart = UART_open(CONFIG_UART_0, &uartParams);
 
     if (uart == NULL) {
@@ -97,22 +99,32 @@ void *cliThread(void *arg0)
         while (1);
     }
 
+    char rndmbuff[20]={0};
+    strcpy(rndmbuff,"hi from shit");
+    UART_write(uart,rndmbuff,sizeof(rndmbuff));
+
+    bm_printf("%s %d %08x\n","avi fraind",4,0xff);
 
    char buffCmd[BUFFSIZE]={'\0'};
-    UART_write(uart, echoPrompt, sizeof(echoPrompt));
+    uart_write_string(echoPrompt, sizeof(echoPrompt));
     char addr[8]={'\0'};
     char valHex[8]={'\0'};
     int i=0;
     /* Loop forever echoing */
+
     while (1) {
-         UART_read(uart,&input , 1);
+        /* Get access to resource */
+//            Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+
+
+         uart_read_string(&input , 1);
          //if the user pressed backspace
          if(input=='\b'){
                i--;
                buffCmd[i%BUFFSIZE]=input;
-               UART_write(uart,  &input, 1);
-               UART_write(uart," ", 1);
-               UART_write(uart,  &input, 1);
+               uart_write_string( &input, 1);
+               uart_write_string(" ", 1);
+               uart_write_string(&input, 1);
 
                continue;
          }
@@ -122,30 +134,30 @@ void *cliThread(void *arg0)
              buffCmd[i]='\0';
              const char enter[2]="\r\n";
              const char  cliPrompt[] = ">";
-             UART_write(uart,  enter, sizeof(enter));
-             UART_write(uart,  cliPrompt, sizeof(cliPrompt));
+             uart_write_string( enter, sizeof(enter));
+             uart_write_string(cliPrompt, sizeof(cliPrompt));
              if (strcmp(buffCmd,"help")==0){
-                 UART_write(uart,"help menu\r\n", sizeof("help menu\r\n"));
-                 UART_write(uart,"w [address] [value]\r\n", sizeof("w [address] [value]\r\n"));
-                 UART_write(uart,"r [address] \r\n", sizeof("r [address] \r\n"));
-                 UART_write(uart,"don't prefix with 0x\r\n", sizeof("don't prefix with 0x\r\n"));
+                 uart_write_string("help menu\r\n", sizeof("help menu\r\n"));
+                 uart_write_string("w [address] [value]\r\n", sizeof("w [address] [value]\r\n"));
+                 uart_write_string("r [address] \r\n", sizeof("r [address] \r\n"));
+                 uart_write_string("don't prefix with 0x\r\n", sizeof("don't prefix with 0x\r\n"));
 
                  uint32_t addr_start= ((uint32_t) (&RAM_writeable_sector)-0x20000000);
                 char RAM_write_string[5]={'\0'};
-               UART_write(uart,"RAM write addr space: 0x",sizeof("RAM write addr space: 0x"));
+               uart_write_string("RAM write addr space: 0x",sizeof("RAM write addr space: 0x"));
                int2hex(addr_start,RAM_write_string);
-               UART_write(uart,RAM_write_string,sizeof(RAM_write_string));
-               UART_write(uart," -0x", sizeof(" -0x"));
+               uart_write_string(RAM_write_string,sizeof(RAM_write_string));
+               uart_write_string(" -0x", sizeof(" -0x"));
                int2hex((addr_start+RAM_WRITE),RAM_write_string);
-               UART_write(uart,RAM_write_string,sizeof(RAM_write_string));
+               uart_write_string(RAM_write_string,sizeof(RAM_write_string));
              }
              if (buffCmd[0]=='w'){
                  if(strlen(buffCmd)<2){
                      buffCmd[0]='\0';
-                       UART_write(uart,"invalid cmd\r\n", sizeof("invalid cmd\r\n"));
+                       uart_write_string("invalid cmd\r\n", sizeof("invalid cmd\r\n"));
                         continue;
                    }
-                         UART_write(uart,"write menu\r\n", sizeof("write menu\r\n"));
+                         uart_write_string("write menu\r\n", sizeof("write menu\r\n"));
                          const char delimiter[2] = " ";//space delimiter
                          char *token;
                           /* get the first token */
@@ -168,20 +180,20 @@ void *cliThread(void *arg0)
              if (buffCmd[0]=='r'){
                  if(strlen(buffCmd)<2){
                      buffCmd[0]='\0';
-                       UART_write(uart,"invalid cmd\r\n", sizeof("invalid cmd\r\n"));
+                       uart_write_string("invalid cmd\r\n", sizeof("invalid cmd\r\n"));
                         continue;
                    }
-                           UART_write(uart,"read menu\r\n", sizeof("read menu\r\n"));
+                           uart_write_string("read menu\r\n", sizeof("read menu\r\n"));
                            strcpy(addr,(buffCmd+2));
                            uint32_t addrHex=(convertStrUint(addr));
                            addrHex+=0x20000000;
                            uint32_t x= *(uint32_t *)(addrHex);
-                          UART_write(uart,"0x", sizeof("0x"));
-                          UART_write(uart,addr, sizeof(addr));
-                          UART_write(uart," = ", sizeof(" = "));
-                          UART_write(uart,"0x", sizeof("0x"));
+                          uart_write_string("0x", sizeof("0x"));
+                          uart_write_string(addr, sizeof(addr));
+                          uart_write_string(" = ", sizeof(" = "));
+                          uart_write_string("0x", sizeof("0x"));
                           int2hex(x,valHex);
-                          UART_write(uart,valHex,sizeof(valHex));
+                          uart_write_string(valHex,sizeof(valHex));
                           memset(addr,'\0',sizeof(addr));
                           memset(buffCmd,'\0',sizeof(buffCmd));
                           memset(valHex,'\0',sizeof(valHex));
@@ -191,10 +203,16 @@ void *cliThread(void *arg0)
              i=0;
              continue;
          }else{
-             UART_write(uart,  &input, 1);
+             uart_write_string(&input, 1);
          }
 i++;
+
+//Semaphore_post(my_semHandle);
          Task_sleep(50 * (1000 / Clock_tickPeriod));
+
+
+
+
 
     }
 }
@@ -252,6 +270,26 @@ char int2hex(unsigned long num,  char *outbuf)
 
 }
 
+
+
+
+void uart_write_string(const char * buff,size_t size){
+    /* Get access to resource */
+//    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+    UART_write(uart,buff,size);
+//    Semaphore_post(my_semHandle);
+}
+
+
+
+
+void uart_read_string( char * buff,size_t size){
+    /* Get access to resource */
+//    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+    UART_read(uart,buff,size);
+//    Semaphore_post(my_semHandle);
+
+}
 
 
 

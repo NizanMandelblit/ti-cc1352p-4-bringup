@@ -44,13 +44,12 @@
 #include <ti/sysbios/knl/Task.h>
 #include <ti/drivers/Board.h>
 #include <ti/sysbios/knl/Clock.h>
-#include <ti/sysbios/knl/Mailbox.h>
+#include <ti/sysbios/knl/Semaphore.h>
 
 
 extern void *cliThread(void *arg0);
 extern void *nvsThread(void *arg0);
 extern void *ledThread(void *arg0);
-//extern int *bm_printf(const char *fmt, ...);
 
 /*
  *  ======== main ========
@@ -60,33 +59,6 @@ extern void *ledThread(void *arg0);
 
 #define NUMMSGS         5
 #define TASKSTACKSIZE   512
-/*
- * This type is accessed by the application. When changing the data members of
- * this structure, considerations should be made for padding and data alignment.
- */
-typedef struct MsgObj {
-    Int     id;
-    Char    val;
-} MsgObj;
-
-/*
- * Mailbox messages are stored in a queue that requires a header in front of
- * each message. Mailbox_MbxElem is defined such that the header and its size
- * are factored into the total data size requirement for a mailbox instance.
- * Because Mailbox_MbxElem contains Int data types, padding may be added to
- * this struct depending on the data members defined in MsgObj.
- */
-typedef struct MailboxMsgObj {
-    Mailbox_MbxElem  elem;      /* Mailbox header        */
-    MsgObj           obj;       /* Application's mailbox */
-} MailboxMsgObj;
-
-/* This buffer is not directly accessed by the application */
-MailboxMsgObj mailboxBuffer[NUMMSGS];
-
-Mailbox_Struct mbxStruct;
-Mailbox_Handle mbxHandle;
-
 
 /* Stack size in bytes */
 #define THREADSTACKSIZE 1024
@@ -100,10 +72,17 @@ static uint8_t ledthreadStack[THREADSTACKSIZE];
 #pragma DATA_ALIGN(nvsthreadStack, 8)
 #pragma DATA_ALIGN(ledthreadStack, 8)
 
+
+
+
 int main(void)
 {
 
     Board_init();
+
+
+
+
 
     Task_Struct clithread;
     Task_Struct nvsthread;
@@ -120,7 +99,6 @@ int main(void)
     Task_Params_init(&ledthreadParams);
 
 
-
     clithreadParams.stackSize = THREADSTACKSIZE;
     clithreadParams.priority = 1;
     clithreadParams.stack = &clithreadStack;
@@ -130,8 +108,11 @@ int main(void)
     ledthreadParams.stack = &ledthreadStack;
 
 
-    Task_construct(&clithread, (Task_FuncPtr)cliThread, &clithreadParams, NULL);
-    Task_construct(&ledthread, (Task_FuncPtr)ledThread, &ledthreadParams, NULL);
+    Task_construct(&clithread, (Task_FuncPtr)cliThread("hello"), &clithreadParams, NULL); //uart thread 50 ms
+    Task_construct(&ledthread, (Task_FuncPtr)ledThread, &ledthreadParams, NULL); //led thread  50 ms
+
+
+//    Task_construct(&nvsthread, (Task_FuncPtr)nvsThread, &nvsthreadParams, NULL); //nvs thread
 
     BIOS_start();
 

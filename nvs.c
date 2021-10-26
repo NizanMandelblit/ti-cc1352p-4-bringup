@@ -13,7 +13,8 @@
 /* Driver Header files */
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/NVS.h>
-
+#include <ti/sysbios/knl/Task.h>
+#include <ti_printf.h>
 
 /* Driver configuration */
 #include "ti_drivers_config.h"
@@ -30,7 +31,7 @@ void *nvsThread(void *arg0)
 
 
 
-
+        bm_printf("nvs thread!\n");
 
 
           NVS_Handle nvsRegion;
@@ -68,7 +69,7 @@ void *nvsThread(void *arg0)
               // Error handling code
           }
           // Print the string from fetched NVS storage
-//          UART_write(uart,buf,sizeof(buf));
+          bm_printf("%s\n",buf);
           //
           // Print the string using direct flash address reference if valid
           //
@@ -76,9 +77,12 @@ void *nvsThread(void *arg0)
           // storage, the regionBase attribute will be `NVS_REGION_NOT_ADDRESSABLE`
           //
           if (regionAttrs.regionBase != NVS_REGION_NOT_ADDRESSABLE) {
-  //           System_printf("%s\n", regionAttrs.regionBase);
+             bm_printf("%s\n", regionAttrs.regionBase);
           }
           // close the region
           NVS_close(nvsRegion);
+          Task_sleep(500 * (1000 / Clock_tickPeriod));
+
+
 
 }
