@@ -47,9 +47,9 @@ char int2hex(unsigned long n,  char *outbuf);
 
 UART_Handle uart;
 
-// Semaphore_Struct my_semStruct;
-// Semaphore_Handle my_semHandle;
-//Semaphore_Params semParams;
+static Semaphore_Struct my_semStruct;
+static Semaphore_Handle my_semHandle;
+Semaphore_Params semParams;
 
 
 void *cliThread(void *arg0)
@@ -57,13 +57,13 @@ void *cliThread(void *arg0)
 
 
 
-//    /* Construct a Semaphore object to be use as a resource lock, inital count 1 */
-//       Semaphore_Params_init(&semParams);
-//       Semaphore_construct(&my_semStruct, 1, &semParams);
-//
-//       /* Obtain instance handle */
-//       my_semHandle = Semaphore_handle(&my_semStruct);
-//
+    /* Construct a Semaphore object to be use as a resource lock, inital count 1 */
+       Semaphore_Params_init(&semParams);
+       Semaphore_construct(&my_semStruct, 1, &semParams);
+
+       /* Obtain instance handle */
+       my_semHandle = Semaphore_handle(&my_semStruct);
+
 
 
     char        input;
@@ -98,10 +98,6 @@ void *cliThread(void *arg0)
         /* UART_open() failed */
         while (1);
     }
-
-    char rndmbuff[20]={0};
-    strcpy(rndmbuff,"hi from shit");
-    UART_write(uart,rndmbuff,sizeof(rndmbuff));
 
     bm_printf("%s %d %08x\n","avi fraind",4,0xff);
 
@@ -275,9 +271,9 @@ char int2hex(unsigned long num,  char *outbuf)
 
 void uart_write_string(const char * buff,size_t size){
     /* Get access to resource */
-//    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
     UART_write(uart,buff,size);
-//    Semaphore_post(my_semHandle);
+    Semaphore_post(my_semHandle);
 }
 
 
@@ -285,9 +281,9 @@ void uart_write_string(const char * buff,size_t size){
 
 void uart_read_string( char * buff,size_t size){
     /* Get access to resource */
-//    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
     UART_read(uart,buff,size);
-//    Semaphore_post(my_semHandle);
+    Semaphore_post(my_semHandle);
 
 }
 
