@@ -108,7 +108,7 @@ int main(void)
     ledthreadParams.stack = &ledthreadStack;
 
 
-    Task_construct(&clithread, (Task_FuncPtr)cliThread("hello"), &clithreadParams, NULL); //uart thread 50 ms
+    Task_construct(&clithread, (Task_FuncPtr)cliThread, &clithreadParams, NULL); //uart thread 50 ms
     Task_construct(&ledthread, (Task_FuncPtr)ledThread, &ledthreadParams, NULL); //led thread  50 ms
 
 
