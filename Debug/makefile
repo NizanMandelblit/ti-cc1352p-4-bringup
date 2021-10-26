@@ -13,6 +13,7 @@ ORDERED_OBJS += \
 "./led.obj" \
 "./main_tirtos.obj" \
 "./nvs.obj" \
+"./ti_printf.obj" \
 "./uartecho.obj" \
 "./syscfg/ti_devices_config.obj" \
 "./syscfg/ti_drivers_config.obj" \
@@ -164,8 +165,8 @@ uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "led.obj" "main_tirtos.obj" "nvs.obj" "uartecho.obj" "syscfg\ti_devices_config.obj" "syscfg\ti_drivers_config.obj" 
-	-$(RM) "led.d" "main_tirtos.d" "nvs.d" "uartecho.d" "syscfg\ti_devices_config.d" "syscfg\ti_drivers_config.d" 
+	-$(RM) "led.obj" "main_tirtos.obj" "nvs.obj" "ti_printf.obj" "uartecho.obj" "syscfg\ti_devices_config.obj" "syscfg\ti_drivers_config.obj" 
+	-$(RM) "led.d" "main_tirtos.d" "nvs.d" "ti_printf.d" "uartecho.d" "syscfg\ti_devices_config.d" "syscfg\ti_drivers_config.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '

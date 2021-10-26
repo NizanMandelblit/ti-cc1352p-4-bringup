@@ -46,9 +46,11 @@
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Mailbox.h>
 
+
 extern void *cliThread(void *arg0);
 extern void *nvsThread(void *arg0);
 extern void *ledThread(void *arg0);
+//extern int *bm_printf(const char *fmt, ...);
 
 /*
  *  ======== main ========

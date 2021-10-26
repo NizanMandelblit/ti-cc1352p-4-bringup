@@ -48,6 +48,8 @@
 #include "ti_drivers_config.h"
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Task.h>
+#include <ti_printf.h>
+
 
 /*
  *  ======== mainThread ========
@@ -57,31 +59,12 @@
 unsigned int convertStrUint(char *st);
 int hex2int(char ch);
 char int2hex(unsigned long n,  char *outbuf);
+
+
 void *cliThread(void *arg0)
 {
 
-
-//            NVS_Handle nvsRegion;
-//           NVS_Attrs regionAttrs;
-//           uint_fast16_t status;
-//           char buf[32];
-//           // initialize the NVS driver
-//           NVSRAM_init();
-////           //
-////           // Open the NVS region specified by the 0th element in the NVS_config[]
-////           // array defined in ti_drivers_config.c.
-////           //
-////           // Use default NVS_Params to open this memory region, hence 'NULL'
-////           //
-//           nvsRegion = NVSRAM_open(CONFIG_NVS_RAM, NULL);
-////           // Fetch the generic NVS region attributes for nvsRegion
-//////           NVSRAM_getAttrs(nvsRegion, &regionAttrs);
-////           // Write "Hello" to the base address of nvsRegion, verify after write
-//////           status = NVSRAM_write(nvsRegion, 0, "Hello", strlen("Hello")+1, NVS_WRITE_POST_VERIFY);
-////           // Copy "Hello" from nvsRegion into local 'buf'
-//////          status = NVSRAM_read(nvsRegion, 0, buf, strlen("Hello")+1);
-//
-
+    bm_printf("%s %d %08x\n","avi fraind",4,0xff);
 
 
     char        input;
@@ -149,15 +132,12 @@ void *cliThread(void *arg0)
 
                  uint32_t addr_start= ((uint32_t) (&RAM_writeable_sector)-0x20000000);
                 char RAM_write_string[5]={'\0'};
-               UART_write(uart,"RAM write addr sapce: 0x",sizeof("RAM write addr sapce: 0x"));
+               UART_write(uart,"RAM write addr space: 0x",sizeof("RAM write addr space: 0x"));
                int2hex(addr_start,RAM_write_string);
                UART_write(uart,RAM_write_string,sizeof(RAM_write_string));
                UART_write(uart," -0x", sizeof(" -0x"));
                int2hex((addr_start+RAM_WRITE),RAM_write_string);
                UART_write(uart,RAM_write_string,sizeof(RAM_write_string));
-
-
-
              }
              if (buffCmd[0]=='w'){
                  if(strlen(buffCmd)<2){
@@ -271,5 +251,7 @@ char int2hex(unsigned long num,  char *outbuf)
       outbuf[j] = 0;
 
 }
+
+
 
 

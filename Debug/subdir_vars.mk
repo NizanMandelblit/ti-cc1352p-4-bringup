@@ -15,6 +15,7 @@ C_SRCS += \
 ../led.c \
 ../main_tirtos.c \
 ../nvs.c \
+../ti_printf.c \
 ../uartecho.c \
 ./syscfg/ti_devices_config.c \
 ./syscfg/ti_drivers_config.c 
@@ -30,6 +31,7 @@ C_DEPS += \
 ./led.d \
 ./main_tirtos.d \
 ./nvs.d \
+./ti_printf.d \
 ./uartecho.d \
 ./syscfg/ti_devices_config.d \
 ./syscfg/ti_drivers_config.d 
@@ -38,6 +40,7 @@ OBJS += \
 ./led.obj \
 ./main_tirtos.obj \
 ./nvs.obj \
+./ti_printf.obj \
 ./uartecho.obj \
 ./syscfg/ti_devices_config.obj \
 ./syscfg/ti_drivers_config.obj 
@@ -56,6 +59,7 @@ OBJS__QUOTED += \
 "led.obj" \
 "main_tirtos.obj" \
 "nvs.obj" \
+"ti_printf.obj" \
 "uartecho.obj" \
 "syscfg\ti_devices_config.obj" \
 "syscfg\ti_drivers_config.obj" 
@@ -71,6 +75,7 @@ C_DEPS__QUOTED += \
 "led.d" \
 "main_tirtos.d" \
 "nvs.d" \
+"ti_printf.d" \
 "uartecho.d" \
 "syscfg\ti_devices_config.d" \
 "syscfg\ti_drivers_config.d" 
@@ -83,6 +88,7 @@ C_SRCS__QUOTED += \
 "../led.c" \
 "../main_tirtos.c" \
 "../nvs.c" \
+"../ti_printf.c" \
 "../uartecho.c" \
 "./syscfg/ti_devices_config.c" \
 "./syscfg/ti_drivers_config.c" 
