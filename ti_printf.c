@@ -391,11 +391,11 @@ static int ee_vsprintf(char *buf, const char *fmt, va_list args)
 
 int bm_printf(const char *fmt, ...)
 {
-  char buf[1024]={'\0'};
-  va_list args;
-  va_start(args, fmt);
-  ee_vsprintf(buf, fmt, args);
-  va_end(args);
-  uart_write_string(buf,strlen(buf));
+//  char buf[1024]={'\0'};
+//  va_list args;
+//  va_start(args, fmt);
+//  ee_vsprintf(buf, fmt, args);
+//  va_end(args);
+  uart_write_string2(fmt,strlen(fmt));
 
 }

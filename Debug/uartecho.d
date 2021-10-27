@@ -163,8 +163,6 @@ uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages
 uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task__epilogue.h
 uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Task_SupportProxy.h
 uartecho.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/ti_printf.h
-uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h
-uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
 uartecho.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h
 uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h
 uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
@@ -514,10 +512,6 @@ C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/kn
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Task_SupportProxy.h:
 
 C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/ti_printf.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h:
 
 C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h:
 

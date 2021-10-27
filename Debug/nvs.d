@@ -139,17 +139,9 @@ nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/s
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task__epilogue.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Task_SupportProxy.h
 nvs.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/ti_printf.h
+nvs.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h
 nvs.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/string.h
 nvs.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/xlocale/_string.h
-nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/UART.h
-nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/nvs/NVSRAM.h
-nvs.obj: syscfg/ti_drivers_config.h
-nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/devices/DeviceFamily.h
-nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/PIN.h
-nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h
-nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Clock_TimerProxy.h
-nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
-nvs.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/BIOS.h
 nvs.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/BIOS__prologue.h
@@ -164,7 +156,13 @@ nvs.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
 nvs.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IGateProvider.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/BIOS__epilogue.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/package/BIOS_RtsGateProxy.h
+nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/UART.h
+nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/nvs/NVSRAM.h
+nvs.obj: syscfg/ti_drivers_config.h
+nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/devices/DeviceFamily.h
+nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/PIN.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h
+nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Clock_TimerProxy.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
 nvs.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/ti_printf.h
 nvs.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h
@@ -468,27 +466,11 @@ C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/kn
 
 C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/ti_printf.h:
 
+C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h:
+
 C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/string.h:
 
 C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/xlocale/_string.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/UART.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/nvs/NVSRAM.h:
-
-syscfg/ti_drivers_config.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/devices/DeviceFamily.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/PIN.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Clock_TimerProxy.h:
-
-C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h:
-
-C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h:
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/BIOS.h:
 
@@ -518,7 +500,19 @@ C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/BI
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/package/BIOS_RtsGateProxy.h:
 
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/UART.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/nvs/NVSRAM.h:
+
+syscfg/ti_drivers_config.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/devices/DeviceFamily.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/PIN.h:
+
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/package/Clock_TimerProxy.h:
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h:
 

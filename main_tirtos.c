@@ -45,6 +45,11 @@
 #include <ti/drivers/Board.h>
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Semaphore.h>
+#include <main.h>
+#include <led.h>
+#include <uartecho.h>
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/UART.h>
 
 
 extern void *cliThread(void *arg0);
@@ -81,8 +86,27 @@ int main(void)
     Board_init();
 
 
+    Semaphore_Struct my_semStruct;
+    Semaphore_Handle my_semHandle;
+ Semaphore_Params semParams;
 
 
+    /* Construct a Semaphore object to be use as a resource lock, inital count 1 */
+       Semaphore_Params_init(&semParams);
+       semParams.mode = Semaphore_Mode_BINARY;
+       my_semHandle = Semaphore_create(1, &semParams, NULL); /* Memory allocated in here */
+
+//       Semaphore_construct(&my_semStruct, 1, &semParams);
+
+       /* Obtain instance handle */
+
+
+
+
+
+  init_led(&my_semHandle);
+
+  init_echo(&my_semHandle);
 
     Task_Struct clithread;
     Task_Struct nvsthread;

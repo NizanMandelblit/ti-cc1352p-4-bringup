@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
-
+#include <led.h>
 /* Driver Header files */
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/apps/LED.h>
@@ -28,8 +28,10 @@
 #include <ti_printf.h>
 
 void *ledThread(void *arg0){
+
+
 while(1){
-//    bm_printf("led thread!\r\n");
+    bm_printf("led thread!\n");
 
     GPIO_write(CONFIG_GPIO_LED_0, CONFIG_LED_OFF);
 //    myDelay(12000000); /* Pretend to do something useful but time-consuming */
@@ -39,5 +41,13 @@ while(1){
 
 }
 
+
+}
+
+Semaphore_Handle led_semHandle;
+
+void init_led(Semaphore_Handle* handle){
+
+//    led_semHandle=*handle;
 
 }

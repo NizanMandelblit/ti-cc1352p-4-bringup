@@ -47,59 +47,50 @@ char int2hex(unsigned long n,  char *outbuf);
 
 UART_Handle uart;
 
-static Semaphore_Struct my_semStruct;
-static Semaphore_Handle my_semHandle;
-Semaphore_Params semParams;
-
-
+static Semaphore_Handle* uart_semHandle;
+volatile int flag = 0;
+volatile char bufff[1024] = {0};
 void *cliThread(void *arg0)
 {
 
 
-
-    /* Construct a Semaphore object to be use as a resource lock, inital count 1 */
-       Semaphore_Params_init(&semParams);
-       Semaphore_construct(&my_semStruct, 1, &semParams);
-
-       /* Obtain instance handle */
-       my_semHandle = Semaphore_handle(&my_semStruct);
+    UART_Params uartParams;
 
 
+      /* Call driver init functions */
+      GPIO_init();
+      UART_init();
+
+      /* Configure the LED pin */
+      GPIO_setConfig(CONFIG_GPIO_LED_0, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
+
+      /* Create a UART with data processing off. */
+      UART_Params_init(&uartParams);
+      uartParams.writeDataMode =  UART_DATA_TEXT;
+      uartParams.readDataMode =  UART_DATA_TEXT;
+      uartParams.readReturnMode = UART_RETURN_NEWLINE;
+      uartParams.baudRate = 115200;
+      uartParams.readEcho=UART_ECHO_ON;
+
+
+
+
+
+      uart = UART_open(CONFIG_UART_0, &uartParams);
+
+      if (uart == NULL) {
+          /* UART_open() failed */
+          while (1);
+      }
 
     char        input;
     uint8_t  inputArray[BUFFSIZE];
     const char  echoPrompt[] = "\r\n Echoing characters:\r\n";
     uint32_t RAM_writeable_sector[RAM_WRITE]={0};
 
-    UART_Params uartParams;
-
-    /* Call driver init functions */
-    GPIO_init();
-    UART_init();
-
-    /* Configure the LED pin */
-    GPIO_setConfig(CONFIG_GPIO_LED_0, GPIO_CFG_OUT_STD | GPIO_CFG_OUT_LOW);
-
-    /* Create a UART with data processing off. */
-    UART_Params_init(&uartParams);
-    uartParams.writeDataMode =  UART_DATA_TEXT;
-    uartParams.readDataMode =  UART_DATA_TEXT;
-    uartParams.readReturnMode = UART_RETURN_NEWLINE;
-    uartParams.baudRate = 115200;
-    uartParams.readEcho=UART_ECHO_ON;
 
 
-
-
-
-    uart = UART_open(CONFIG_UART_0, &uartParams);
-
-    if (uart == NULL) {
-        /* UART_open() failed */
-        while (1);
-    }
-
-    bm_printf("%s %d %08x\n","avi fraind",4,0xff);
+//    bm_printf("%s %d %08x\n","avi fraind",4,0xff);
 
    char buffCmd[BUFFSIZE]={'\0'};
     uart_write_string(echoPrompt, sizeof(echoPrompt));
@@ -111,7 +102,16 @@ void *cliThread(void *arg0)
     while (1) {
         /* Get access to resource */
 //            Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+        //there is new data to write
+        Semaphore_pend(*uart_semHandle, BIOS_WAIT_FOREVER);
+        if(flag == 1)
+        {
+            UART_write(uart,bufff,1024);
+            flag = 0;
 
+        }
+
+           Semaphore_post(*uart_semHandle);
 
          uart_read_string(&input , 1);
          //if the user pressed backspace
@@ -268,12 +268,26 @@ char int2hex(unsigned long num,  char *outbuf)
 
 
 
-
 void uart_write_string(const char * buff,size_t size){
     /* Get access to resource */
-    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+    Semaphore_pend(*uart_semHandle, BIOS_WAIT_FOREVER);
+//    UART_write(uart,"asdfasdfasdfasdfasdfasdfasdfasfasdfsadfasdf",size);
     UART_write(uart,buff,size);
-    Semaphore_post(my_semHandle);
+//    flag = 1;
+//    memset(bufff, 0, 1024);
+//strcpy(bufff, buff);
+    Semaphore_post(*uart_semHandle);
+}
+
+void uart_write_string2(const char * buff,size_t size){
+    /* Get access to resource */
+    Semaphore_pend(*uart_semHandle, BIOS_WAIT_FOREVER);
+//    UART_write(uart,"asdfasdfasdfasdfasdfasdfasdfasfasdfsadfasdf",size);
+//    UART_write(uart,buff,size);
+    flag = 1;
+    memset(bufff, 0, 1024);
+strcpy(bufff, buff);
+    Semaphore_post(*uart_semHandle);
 }
 
 
@@ -281,11 +295,17 @@ void uart_write_string(const char * buff,size_t size){
 
 void uart_read_string( char * buff,size_t size){
     /* Get access to resource */
-    Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
+    Semaphore_pend(*uart_semHandle, BIOS_WAIT_FOREVER);
     UART_read(uart,buff,size);
-    Semaphore_post(my_semHandle);
+    Semaphore_post(*uart_semHandle);
 
 }
 
 
 
+void init_echo(Semaphore_Handle* handle){
+    uart_semHandle=handle;
+
+
+
+}

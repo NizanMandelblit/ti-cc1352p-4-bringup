@@ -174,6 +174,26 @@ main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packa
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
 main_tirtos.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
 main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event__epilogue.h
+main_tirtos.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/main.h
+main_tirtos.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/led.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h
+main_tirtos.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h
+main_tirtos.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdbool.h
+main_tirtos.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/string.h
+main_tirtos.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/xlocale/_string.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/BIOS.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/GPIO.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/UART.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/NVS.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/nvs/NVSRAM.h
+main_tirtos.obj: syscfg/ti_drivers_config.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/devices/DeviceFamily.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/PIN.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
+main_tirtos.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/ti_printf.h
+main_tirtos.obj: C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h
+main_tirtos.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h
 
 ../main_tirtos.c:
 
@@ -522,4 +542,44 @@ C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/kn
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event__epilogue.h:
+
+C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/main.h:
+
+C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/led.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h:
+
+C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h:
+
+C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdbool.h:
+
+C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/string.h:
+
+C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/xlocale/_string.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/BIOS.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/GPIO.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/UART.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/NVS.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/nvs/NVSRAM.h:
+
+syscfg/ti_drivers_config.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/devices/DeviceFamily.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source/ti/drivers/PIN.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Clock.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h:
+
+C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/ti_printf.h:
+
+C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/uartecho.h:
+
+C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Semaphore.h:
 
