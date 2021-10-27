@@ -34,6 +34,7 @@
  *  ======== uartecho.c ========
  */
 #include <uartecho.h>
+#include <xdc/runtime/System.h>
 
 /*
  *  ======== mainThread ========
@@ -52,6 +53,9 @@ volatile int flag = 0;
 volatile char bufff[1024] = {0};
 void *cliThread(void *arg0)
 {
+
+    System_printf("Count = %d and it's address is 0x%x\n", flag, &flag);
+    System_flush();
 
 
     UART_Params uartParams;
@@ -286,7 +290,7 @@ void uart_write_string2(const char * buff,size_t size){
 //    UART_write(uart,buff,size);
     flag = 1;
     memset(bufff, 0, 1024);
-strcpy(bufff, buff);
+    strcpy(bufff, buff);
     Semaphore_post(*uart_semHandle);
 }
 

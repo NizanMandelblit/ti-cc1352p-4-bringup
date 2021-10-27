@@ -186,6 +186,23 @@ uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages
 uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Task.h
 uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
 uartecho.obj: C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event__epilogue.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ISystemSupport.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IGateProvider.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_SupportProxy.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ISystemSupport.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_Module_GateProxy.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IGateProvider.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_SupportProxy.h
+uartecho.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_Module_GateProxy.h
 
 ../uartecho.c:
 
@@ -558,4 +575,38 @@ C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/kn
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
 
 C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages/ti/sysbios/knl/Event__epilogue.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ISystemSupport.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IGateProvider.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_SupportProxy.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ISystemSupport.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_Module_GateProxy.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IGateProvider.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_SupportProxy.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/System_Module_GateProxy.h:
 

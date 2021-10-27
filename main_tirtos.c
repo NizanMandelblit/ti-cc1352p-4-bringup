@@ -88,7 +88,7 @@ int main(void)
 
     Semaphore_Struct my_semStruct;
     Semaphore_Handle my_semHandle;
- Semaphore_Params semParams;
+    Semaphore_Params semParams;
 
 
     /* Construct a Semaphore object to be use as a resource lock, inital count 1 */
