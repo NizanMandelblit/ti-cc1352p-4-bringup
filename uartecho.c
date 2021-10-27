@@ -116,12 +116,13 @@ void* cliThread(void *arg0)
         //if the user pressed backspace
         if (input == '\b')
         {
+            if(i){
             i--;
             buffCmd[i % BUFFSIZE] = input;
             uart_write_string(&input, 1);
             uart_write_string(" ", 1);
             uart_write_string(&input, 1);
-
+            }
             continue;
         }
         buffCmd[i % BUFFSIZE] = input;
