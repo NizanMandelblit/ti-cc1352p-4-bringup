@@ -31,7 +31,7 @@ void *ledThread(void *arg0){
 
 
 while(1){
-    bm_printf("led thread!\n");
+//    bm_printf("led thread!\n");
 
     GPIO_write(CONFIG_GPIO_LED_0, CONFIG_LED_OFF);
 //    myDelay(12000000); /* Pretend to do something useful but time-consuming */
