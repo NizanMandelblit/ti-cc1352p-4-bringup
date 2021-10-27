@@ -10,6 +10,7 @@ GEN_OPTS__FLAG := --cmd_file="C:/Users/cellium/workspace_v10/tirtos_builds_cc13x
 GEN_CMDS__FLAG := -l"C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug/configPkg/linker.cmd" 
 
 ORDERED_OBJS += \
+"./events.obj" \
 "./led.obj" \
 "./main_tirtos.obj" \
 "./nvs.obj" \
@@ -165,8 +166,8 @@ uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "led.obj" "main_tirtos.obj" "nvs.obj" "ti_printf.obj" "uartecho.obj" "syscfg\ti_devices_config.obj" "syscfg\ti_drivers_config.obj" 
-	-$(RM) "led.d" "main_tirtos.d" "nvs.d" "ti_printf.d" "uartecho.d" "syscfg\ti_devices_config.d" "syscfg\ti_drivers_config.d" 
+	-$(RM) "events.obj" "led.obj" "main_tirtos.obj" "nvs.obj" "ti_printf.obj" "uartecho.obj" "syscfg\ti_devices_config.obj" "syscfg\ti_drivers_config.obj" 
+	-$(RM) "events.d" "led.d" "main_tirtos.d" "nvs.d" "ti_printf.d" "uartecho.d" "syscfg\ti_devices_config.d" "syscfg\ti_drivers_config.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '

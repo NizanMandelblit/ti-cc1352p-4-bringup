@@ -116,12 +116,13 @@ void* cliThread(void *arg0)
         //if the user pressed backspace
         if (input == '\b')
         {
-            if(i){
-            i--;
-            buffCmd[i % BUFFSIZE] = input;
-            uart_write_string(&input, 1);
-            uart_write_string(" ", 1);
-            uart_write_string(&input, 1);
+            if (i)
+            {
+                i--;
+                buffCmd[i % BUFFSIZE] = input;
+                uart_write_string(&input, 1);
+                uart_write_string(" ", 1);
+                uart_write_string(&input, 1);
             }
             continue;
         }
@@ -134,7 +135,7 @@ void* cliThread(void *arg0)
             const char cliPrompt[] = ">";
             uart_write_string(enter, sizeof(enter));
             uart_write_string(cliPrompt, sizeof(cliPrompt));
-            if (strcmp(buffCmd, "help") == 0)
+            if ((strcmp(buffCmd, "help") == 0) || (strcmp(buffCmd, "h") == 0))
             {
                 uart_write_string("help menu\r\n", sizeof("help menu\r\n"));
                 uart_write_string("w [address] [value]\r\n",
@@ -168,18 +169,36 @@ void* cliThread(void *arg0)
                 token = strtok(buffCmd, delimiter);
                 /* walk through other tokens */
                 token = strtok(NULL, delimiter);        //skip the 'w'
-                if(token[1]=='x' || token[1]=='X'){
-                    strcpy(addr, token+2);
-                }else{
+                if (token[1] == 'x' || token[1] == 'X')
+                {
+                    strcpy(addr, token + 2);
+                }
+                else if (token == NULL)
+                {
+                    buffCmd[0] = '\0';
+                    uart_write_string("invalid cmd\r\n",
+                                      sizeof("invalid cmd\r\n"));
+                    continue;
+                }
+                else
+                {
                     strcpy(addr, token);
                 }
 
 
                 token = strtok(NULL, delimiter);        //skip the addr string
                 memset(valHex, '\0', sizeof(valHex));
-                if(token[1]=='x' || token[1]=='X'){
-                    strcpy(valHex, token+2);        //token is now the value
-                }else{
+                if (token[1] == 'x' || token[1] == 'X')
+                {
+                    strcpy(valHex, token + 2);        //token is now the value
+                }
+                else  if (token == NULL){
+                    buffCmd[0] = '\0';
+                                   uart_write_string("invalid cmd\r\n",
+                                                     sizeof("invalid cmd\r\n"));
+                                   continue;
+                }else
+                {
                     strcpy(valHex, token);        //token is now the value
 
                 }

@@ -55,6 +55,8 @@
 extern void *cliThread(void *arg0);
 extern void *nvsThread(void *arg0);
 extern void *ledThread(void *arg0);
+extern void *eventsThread(void *arg0);
+
 
 /*
  *  ======== main ========
