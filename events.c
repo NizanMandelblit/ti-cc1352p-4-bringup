@@ -32,21 +32,16 @@
 #include <ti_printf.h>
 
 
-
-
 typedef struct events {
    List_Elem elem;
-   char  EventId[50];
-   char  EventType[50];
-   char  EventTime[100];
-   int   probableCause;
-   char  perceivedSeverity[100];
-   char  ManagedObjectInstance[100];
-   char  serviceDesruptive[100];
-   char  notificationIdentifier [100];
-   char  AdditionalText[100];
-   char  AdditionalInformation[100];
-   char  ProposedRepairActions[100];
+   uint32_t  EventId;
+   uint8_t  EventType;
+   uint8_t  EventTime[100];//---NEED TO CHECK HOW MUCH BITS ARE NEDDED!
+
+   uint32_t  ManagedObjectClass;
+   uint16_t  ManagedObjectInstance;
+   uint8_t  perceivedSeverity;
+   uint32_t  AdditionalInformation[3];
 } Events;
 
 
@@ -58,8 +53,8 @@ void *eventsThread(void *arg0){
 List_List listEvents;
 
 
-strcpy(ev.EventId,"test1");
-strcpy(ev2.EventId,"test2");
+memcpy(ev.EventId,"test1",sizeof("test1"));
+memcpy(ev2.EventId,"test2",sizeof("test2"));
 Events *evPtr;
 Events *evPtr2;
 

@@ -146,7 +146,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@$(MAKE) --no-print-directory -Onone "uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.out"
 
 dependents:
-	-cd C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug && $(MAKE) clean all
+	-cd C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug && $(MAKE) all
 
 # Tool invocations
 uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS) C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug/tirtos_builds_cc13x2_cc26x2_release_ccs.lib

@@ -49,7 +49,7 @@ UART_Handle uart;
 
 static Semaphore_Handle *uart_semHandle;
 volatile int flag = 0;
-volatile char bufff[1024] = { 0 };
+ char bufff[1024] = { 0 };
 void* cliThread(void *arg0)
 {
 

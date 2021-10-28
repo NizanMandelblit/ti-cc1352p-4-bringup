@@ -55,14 +55,14 @@ void *nvsThread(void *arg0)
           NVS_getAttrs(nvsRegion, &regionAttrs);
           // Erase the first sector of nvsRegion
   //        status = NVS_erase(nvsRegion, 0, regionAttrs.sectorSize);
-          if (status != NVS_STATUS_SUCCESS) {
-              // Error handling code
-          }
-          // Write "Hello" to the base address of nvsRegion, verify after write
-  //        status = NVS_write(nvsRegion, 0, "Hello", strlen("Hello")+1, NVS_WRITE_POST_VERIFY);
-          if (status != NVS_STATUS_SUCCESS) {
-              // Error handling code
-          }
+//          if (status != NVS_STATUS_SUCCESS) {
+//              // Error handling code
+//          }
+//          // Write "Hello" to the base address of nvsRegion, verify after write
+//  //        status = NVS_write(nvsRegion, 0, "Hello", strlen("Hello")+1, NVS_WRITE_POST_VERIFY);
+//          if (status != NVS_STATUS_SUCCESS) {
+//              // Error handling code
+//          }
           // Copy "Hello" from nvsRegion into local 'buf'
           status = NVS_read(nvsRegion, 0, buf, strlen("Hello")+1);
           if (status != NVS_STATUS_SUCCESS) {
