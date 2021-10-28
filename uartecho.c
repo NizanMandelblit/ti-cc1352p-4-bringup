@@ -99,6 +99,8 @@ void* cliThread(void *arg0)
 
     while (1)
     {
+        const char delimiter[2] = " ";        //space delimiter
+
         /* Get access to resource */
 //            Semaphore_pend(my_semHandle, BIOS_WAIT_FOREVER);
         //there is new data to write
@@ -163,7 +165,6 @@ void* cliThread(void *arg0)
                     continue;
                 }
                 uart_write_string("write menu\r\n", sizeof("write menu\r\n"));
-                const char delimiter[2] = " ";        //space delimiter
                 char *token;
                 /* get the first token */
                 token = strtok(buffCmd, delimiter);
@@ -245,10 +246,13 @@ void* cliThread(void *arg0)
                 continue;
 
             }
-//            if(strcmp(buffCmd, "evopen") == 0)
-//            {
-//                UART_write(uart,"succsess!",sizeof("succsess!"));
-//            }
+            char *token;
+           /* get the first token */
+           token = strtok(buffCmd, delimiter);
+            if(strcmp(token, "evopen") == 0)
+            {
+                UART_write(uart,"succsess!",sizeof("succsess!"));
+            }
             
             i = 0;
             continue;
