@@ -72,14 +72,14 @@ extern void *eventsThread(void *arg0);
 static uint8_t clithreadStack[THREADSTACKSIZE];
 static uint8_t nvsthreadStack[THREADSTACKSIZE];
 static uint8_t ledthreadStack[THREADSTACKSIZE];
-//static uint8_t eventsthreadStack[THREADSTACKSIZE];
+static uint8_t eventsthreadStack[THREADSTACKSIZE];
 
 
 /* Make sure we have nice 8-byte alignment on the stack to avoid wasting memory */
 #pragma DATA_ALIGN(clithreadStack, 8)
 #pragma DATA_ALIGN(nvsthreadStack, 8)
 #pragma DATA_ALIGN(ledthreadStack, 8)
-//#pragma DATA_ALIGN(eventsthreadStack, 8)
+#pragma DATA_ALIGN(eventsthreadStack, 8)
 
 
 
@@ -115,20 +115,20 @@ int main(void)
     Task_Struct clithread;
     Task_Struct nvsthread;
     Task_Struct ledthread;
-//    Task_Struct eventsthread;
+    Task_Struct eventsthread;
 
 
 
     Task_Params  clithreadParams;
     Task_Params  nvsthreadParams;
     Task_Params  ledthreadParams;
-//    Task_Params  eventsthreadParams;
+    Task_Params  eventsthreadParams;
 
 
     Task_Params_init(&clithreadParams);
     Task_Params_init(&nvsthreadParams);
     Task_Params_init(&ledthreadParams);
-//    Task_Params_init(&eventsthreadParams);
+    Task_Params_init(&eventsthreadParams);
 
 
     clithreadParams.stackSize = THREADSTACKSIZE;
@@ -140,13 +140,14 @@ int main(void)
     ledthreadParams.stack = &ledthreadStack;
 
 
-//    eventsthreadParams.stackSize = THREADSTACKSIZE;
-//    eventsthreadParams.priority = 2;
-//    eventsthreadParams.stack = &eventsthreadStack;
+    eventsthreadParams.stackSize = THREADSTACKSIZE;
+    eventsthreadParams.priority = 2;
+    eventsthreadParams.stack = &eventsthreadStack;
 
 
     Task_construct(&clithread, (Task_FuncPtr)cliThread, &clithreadParams, NULL); //uart thread 50 ms
     Task_construct(&ledthread, (Task_FuncPtr)ledThread, &ledthreadParams, NULL); //led thread  50 ms
+
 //    Task_construct(&eventsthread, (Task_FuncPtr)eventsThread, &eventsthreadParams, NULL); //events thread 50 ms
 
 

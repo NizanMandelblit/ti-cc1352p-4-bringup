@@ -49,7 +49,7 @@ UART_Handle uart;
 
 static Semaphore_Handle *uart_semHandle;
 volatile int flag = 0;
- char bufff[1024] = { 0 };
+char bufff[1024] = { 0 };
 void* cliThread(void *arg0)
 {
 
@@ -245,10 +245,10 @@ void* cliThread(void *arg0)
                 continue;
 
             }
-            if(strcmp(buffCmd, "eveopen") == 0)
-            {
-                /* code */
-            }
+//            if(strcmp(buffCmd, "evopen") == 0)
+//            {
+//                UART_write(uart,"succsess!",sizeof("succsess!"));
+//            }
             
             i = 0;
             continue;
