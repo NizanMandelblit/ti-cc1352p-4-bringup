@@ -12,7 +12,9 @@ SYSCFG_SRCS += \
 ../uartecho.syscfg 
 
 C_SRCS += \
-../events.c \
+../crs_events_manager.c \
+../crs_events_reader.c \
+../crs_events_writer.c \
 ../led.c \
 ../main_tirtos.c \
 ../nvs.c \
@@ -29,7 +31,9 @@ GEN_MISC_DIRS += \
 ./syscfg/ 
 
 C_DEPS += \
-./events.d \
+./crs_events_manager.d \
+./crs_events_reader.d \
+./crs_events_writer.d \
 ./led.d \
 ./main_tirtos.d \
 ./nvs.d \
@@ -39,7 +43,9 @@ C_DEPS += \
 ./syscfg/ti_drivers_config.d 
 
 OBJS += \
-./events.obj \
+./crs_events_manager.obj \
+./crs_events_reader.obj \
+./crs_events_writer.obj \
 ./led.obj \
 ./main_tirtos.obj \
 ./nvs.obj \
@@ -59,7 +65,9 @@ GEN_MISC_DIRS__QUOTED += \
 "syscfg\" 
 
 OBJS__QUOTED += \
-"events.obj" \
+"crs_events_manager.obj" \
+"crs_events_reader.obj" \
+"crs_events_writer.obj" \
 "led.obj" \
 "main_tirtos.obj" \
 "nvs.obj" \
@@ -76,7 +84,9 @@ GEN_MISC_FILES__QUOTED += \
 "syscfg\ti_utils_runtime_Makefile" 
 
 C_DEPS__QUOTED += \
-"events.d" \
+"crs_events_manager.d" \
+"crs_events_reader.d" \
+"crs_events_writer.d" \
 "led.d" \
 "main_tirtos.d" \
 "nvs.d" \
@@ -90,7 +100,9 @@ GEN_FILES__QUOTED += \
 "syscfg\ti_drivers_config.c" 
 
 C_SRCS__QUOTED += \
-"../events.c" \
+"../crs_events_manager.c" \
+"../crs_events_reader.c" \
+"../crs_events_writer.c" \
 "../led.c" \
 "../main_tirtos.c" \
 "../nvs.c" \
