@@ -29,7 +29,7 @@
 
 
 
-
+void uart_write_string(const char *buff, size_t size);
 void uart_write_string2(const char * buff,size_t size);
 void uart_read_string( char * buff,size_t size);
 void init_echo(Semaphore_Handle* handle);

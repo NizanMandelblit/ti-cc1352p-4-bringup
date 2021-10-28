@@ -245,6 +245,11 @@ void* cliThread(void *arg0)
                 continue;
 
             }
+            if(strcmp(buffCmd, "eveopen") == 0)
+            {
+                /* code */
+            }
+            
             i = 0;
             continue;
         }

@@ -9,10 +9,13 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <string.h>
+
 #include <led.h>
 /* Driver Header files */
 #include <ti/drivers/GPIO.h>
 #include <ti/drivers/apps/LED.h>
+#include <ti/drivers/utils/List.h>
 
 /* Driver configuration */
 #include "ti_drivers_config.h"
@@ -29,7 +32,10 @@
 #include <ti_printf.h>
 
 
-struct events {
+
+
+typedef struct events {
+   List_Elem elem;
    char  EventId[50];
    char  EventType[50];
    char  EventTime[100];
@@ -44,8 +50,26 @@ struct events {
 } Events;
 
 
+Events ev;
+Events ev2;
+
 void *eventsThread(void *arg0){
 
+List_List listEvents;
+
+
+strcpy(ev.EventId,"test1");
+strcpy(ev2.EventId,"test2");
+Events *evPtr;
+Events *evPtr2;
+
+List_clearList(&listEvents); //Function to initialize the contents of a List_List.
+List_put(&listEvents, (List_Elem *)&ev); //Function to atomically put an elem onto the end of a linked list.
+List_put(&listEvents, (List_Elem *)&ev2);
+evPtr = (Events *)List_get(&listEvents); //Function to atomically get the first elem in a linked list.
+evPtr2=(Events*) evPtr->elem.next;
+
+Task_sleep(50 * (1000 / Clock_tickPeriod));
 
 
 }
