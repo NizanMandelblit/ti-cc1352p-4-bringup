@@ -31,9 +31,30 @@
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Task.h>
 #include <crs_events_manager.h>
+#include <ti_printf.h>
+#include <ti_utils.h>
+
+extern List_List listEvents;
+
+typedef struct crs_events_reader {
+    crs_Events *start;
+    crs_Events *end;
+    crs_Events *curr;
+    uint8_t handler_id;
+} crs_Events_Reader;
+
+unsigned int handler_counter=0;
+
+void *events_readerThread(){
+    char* buff;
+    handler_counter++;
+    bm_printf("handler id ");
+    int2hex(handler_counter,buff);
+    bm_printf(buff);
 
 
 
-void *events_readerThread(void *arg0){
+//    evPtr = (crs_Events *)List_get(&listEvents); //Function to atomically get the first elem in a linked list.
+
 
 }

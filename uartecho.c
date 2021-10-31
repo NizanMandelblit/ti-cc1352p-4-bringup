@@ -44,7 +44,7 @@
 unsigned int convertStrUint(char *st);
 int hex2int(char ch);
 char int2hex(unsigned long n, char *outbuf);
-
+extern void *events_readerThread();
 UART_Handle uart;
 
 static Semaphore_Handle *uart_semHandle;
@@ -52,9 +52,6 @@ volatile int flag = 0;
 char bufff[1024] = { 0 };
 void* cliThread(void *arg0)
 {
-
-    System_printf("Count = %d and it's address is 0x%x\n", flag, &flag);
-    System_flush();
 
     UART_Params uartParams;
 
@@ -251,9 +248,9 @@ void* cliThread(void *arg0)
            token = strtok(buffCmd, delimiter);
             if(strcmp(token, "evopen") == 0)
             {
-                UART_write(uart,"succsess!",sizeof("succsess!"));
+                events_readerThread();
             }
-            
+
             i = 0;
             continue;
         }
@@ -268,6 +265,8 @@ void* cliThread(void *arg0)
 
     }
 }
+
+
 
 unsigned int convertStrUint(char *st)
 {
@@ -322,6 +321,8 @@ char int2hex(unsigned long num, char *outbuf)
     outbuf[j] = 0;
 
 }
+
+
 
 void uart_write_string(const char *buff, size_t size)
 {

@@ -33,8 +33,19 @@
 #include <crs_events_manager.h>
 
 
-
+extern List_List listEvents;
 void *events_writerThread(void *arg0){
+
+    crs_Events ev;
+    memcpy(&ev.EventId,"testWriter",sizeof("testWriter"));
+    List_put(&listEvents, (List_Elem *)&ev);
+
+
+    while(1){
+
+        Task_sleep(50 * (1000 / Clock_tickPeriod));
+    }
+
 
 
 }

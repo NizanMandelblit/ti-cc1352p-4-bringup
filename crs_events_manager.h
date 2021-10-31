@@ -34,6 +34,17 @@
 #include <ti/sysbios/knl/Clock.h>
 #include <ti/sysbios/knl/Task.h>
 
+typedef struct crs_events {
+   List_Elem elem;
+   uint32_t  EventId;
+   uint8_t  EventType;
+   uint32_t  EventTime;//---NEED TO CHECK HOW MUCH BITS ARE NEDDED!   uint32_t time= Timestamp_get32();
+   uint32_t  ManagedObjectClass;
+   uint16_t  ManagedObjectInstance;
+   uint8_t  perceivedSeverity;
+   uint32_t  AdditionalInformation[3];
+} crs_Events;
+
 
 
 void *eventsThread(void *arg0);

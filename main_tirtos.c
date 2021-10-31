@@ -63,12 +63,8 @@ extern void *eventsThread(void *arg0);
  */
 
 
-
-#define NUMMSGS         5
-#define TASKSTACKSIZE   512
-
 /* Stack size in bytes */
-#define THREADSTACKSIZE 512
+#define THREADSTACKSIZE 1024
 static uint8_t clithreadStack[THREADSTACKSIZE];
 static uint8_t nvsthreadStack[THREADSTACKSIZE];
 static uint8_t ledthreadStack[THREADSTACKSIZE];
@@ -126,9 +122,9 @@ int main(void)
 
 
     Task_Params_init(&clithreadParams);
-    Task_Params_init(&nvsthreadParams);
+//    Task_Params_init(&nvsthreadParams);
     Task_Params_init(&ledthreadParams);
-//    Task_Params_init(&eventsthreadParams);  //BUG !!!! MAKE THE CPU STUCK!
+    Task_Params_init(&eventsthreadParams);  //BUG !!!!4 task params init, MAKE THE CPU STUCK!
 
 
     clithreadParams.stackSize = THREADSTACKSIZE;
@@ -140,13 +136,13 @@ int main(void)
     ledthreadParams.stack = &ledthreadStack;
 
 
-//    eventsthreadParams.stackSize = THREADSTACKSIZE;
-//    eventsthreadParams.priority = 2;
-//    eventsthreadParams.stack = &eventsthreadStack;
+    eventsthreadParams.stackSize = THREADSTACKSIZE;
+    eventsthreadParams.priority = 2;
+    eventsthreadParams.stack = &eventsthreadStack;
 
     Task_construct(&clithread, (Task_FuncPtr)cliThread, &clithreadParams, NULL); //uart thread 50 ms
     Task_construct(&ledthread, (Task_FuncPtr)ledThread, &ledthreadParams, NULL); //led thread  50 ms
-//    Task_construct(&eventsthread, (Task_FuncPtr)eventsThread, &eventsthreadParams, NULL); //events thread 50 ms
+    Task_construct(&eventsthread, (Task_FuncPtr)eventsThread, &eventsthreadParams, NULL); //events thread 50 ms
 
 
 //    Task_construct(&nvsthread, (Task_FuncPtr)nvsThread, &nvsthreadParams, NULL); //nvs thread

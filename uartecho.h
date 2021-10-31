@@ -26,12 +26,16 @@
 #include <ti/sysbios/knl/Task.h>
 #include <ti_printf.h>
 #include <ti/sysbios/knl/Semaphore.h>
-
+#include <ti_utils.h>
 
 
 void uart_write_string(const char *buff, size_t size);
 void uart_write_string2(const char * buff,size_t size);
 void uart_read_string( char * buff,size_t size);
 void init_echo(Semaphore_Handle* handle);
+
+unsigned int convertStrUint(char *st);
+int hex2int(char ch);
+char int2hex(unsigned long num, char *outbuf);
 
 #endif /* UARTECHO_H_ */

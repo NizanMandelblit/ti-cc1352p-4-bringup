@@ -131,37 +131,37 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.out \
+cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.out \
 
 EXE_OUTPUTS__QUOTED += \
-"uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.out" \
+"cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.out" \
 
 BIN_OUTPUTS += \
-uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.hex \
+cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.hex \
 
 BIN_OUTPUTS__QUOTED += \
-"uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.hex" \
+"cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.hex" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.out"
+	@$(MAKE) --no-print-directory -Onone "cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.out"
 
 dependents:
-	-cd C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug && $(MAKE) all
+	-cd C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug && $(MAKE) clean all
 
 # Tool invocations
-uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS) C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug/tirtos_builds_cc13x2_cc26x2_release_ccs.lib
+cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS) C:/Users/cellium/workspace_v10/tirtos_builds_cc13x2_cc26x2_release_ccs/Debug/tirtos_builds_cc13x2_cc26x2_release_ccs.lib
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=DeviceFamily_CC13X2 -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on -z -m"uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.map" -i"C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source" -i"C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages" -i"C:/Users/cellium/workspace_v10/uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs/Debug/syscfg" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" --diag_wrap=off --display_error_number --warn_sections --xml_link_info="uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs_linkInfo.xml" --rom_model -o "uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=DeviceFamily_CC13X2 -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on -z -m"cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.map" -i"C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/source" -i"C:/ti/simplelink_cc13x2_26x2_sdk_5_20_00_52/kernel/tirtos/packages" -i"C:/Users/cellium/workspace_v10/cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs/Debug/syscfg" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" --diag_wrap=off --display_error_number --warn_sections --xml_link_info="cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs_linkInfo.xml" --rom_model -o "cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
-uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.hex: $(EXE_OUTPUTS)
+cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: Arm Hex Utility'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armhex" --diag_wrap=off -o "uartecho_CC1352P_4_LAUNCHXL_tirtos_ccs.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armhex" --diag_wrap=off -o "cli_led_events_CC1352P_4_LAUNCHXL_tirtos_ccs.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 
