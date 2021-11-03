@@ -86,7 +86,7 @@ return;
 //    bm_printf("%d", handler_id);
     if (reader[handler_id].is_open)
     {
-        bm_printf("0x%08x 0x%02x 0x%08x 0x%08x 0x%02x %d,%d,%d 0x%01x\r",
+        bm_printf("0x%08x 0x%02x 0x%08x 0x%08x 0x%02x 0x%08x,0x%08x,0x%08x 0x%01x\r",
                   reader[handler_id].curr.EventId,
                   reader[handler_id].curr.EventType,
                   reader[handler_id].curr.EventTime,

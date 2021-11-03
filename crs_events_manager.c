@@ -31,9 +31,9 @@ int i=0;
         listEvents[i].EventTime=Timestamp_get32();
         listEvents[i].ManagedObjectClass=rand();
         listEvents[i].perceivedSeverity=(rand()%0xf);
-        listEvents[i].AdditionalInformation[0]=3;
-        listEvents[i].AdditionalInformation[1]=2;
-        listEvents[i].AdditionalInformation[2]=1;
+        listEvents[i].AdditionalInformation[0]=rand();
+        listEvents[i].AdditionalInformation[1]=rand();
+        listEvents[i].AdditionalInformation[2]=rand();
     }
 
 while(1){
