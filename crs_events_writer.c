@@ -33,12 +33,9 @@
 #include <crs_events_manager.h>
 
 
-extern List_List listEvents;
-void *events_writerThread(void *arg0){
+extern crs_Events* listEvents[MAX_CRS_EVENTS_SLOTS];
 
-    crs_Events ev;
-    memcpy(&ev.EventId,"testWriter",sizeof("testWriter"));
-    List_put(&listEvents, (List_Elem *)&ev);
+void *events_writerThread(void *arg0){
 
 
     while(1){

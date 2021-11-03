@@ -44,7 +44,10 @@
 unsigned int convertStrUint(char *st);
 int hex2int(char ch);
 char int2hex(unsigned long n, char *outbuf);
-extern void *events_readerThread();
+extern void *events_readerThread(uint16_t short_addr);
+void* evnext_cmd(unsigned int handler_id);
+void* evclose_cmd(unsigned int handler_id);
+
 UART_Handle uart;
 
 static Semaphore_Handle *uart_semHandle;
@@ -131,7 +134,7 @@ void* cliThread(void *arg0)
         {
             buffCmd[i] = '\0';
             const char enter[2] = "\r\n";
-            const char cliPrompt[] = ">";
+            const char cliPrompt[] = "AP>";
             uart_write_string(enter, sizeof(enter));
             uart_write_string(cliPrompt, sizeof(cliPrompt));
             if ((strcmp(buffCmd, "help") == 0) || (strcmp(buffCmd, "h") == 0))
@@ -151,6 +154,13 @@ void* cliThread(void *arg0)
                 uart_write_string(" -0x", sizeof(" -0x"));
                 int2hex((addr_start + RAM_WRITE), RAM_write_string);
                 uart_write_string(RAM_write_string, sizeof(RAM_write_string));
+                uart_write_string("\r\n",sizeof("\r\n"));
+                uart_write_string("evopen [short_addr]\r\n",sizeof("evopen [short_addr]\r\n"));
+                uart_write_string("evnext [handler_id]\r\n",sizeof("evnext [handler_id]\r\n"));
+                uart_write_string("evclose [handler_id]\r\n",sizeof("evclose [handler_id]\r\n"));
+
+
+
             }
             if (buffCmd[0] == 'w')
             {
@@ -248,8 +258,20 @@ void* cliThread(void *arg0)
            token = strtok(buffCmd, delimiter);
             if(strcmp(token, "evopen") == 0)
             {
-                events_readerThread();
+                token = strtok(NULL, delimiter);
+                uint16_t short_addr=atoi(token);
+                events_readerThread(short_addr);
+            }else if(strcmp(token, "evnext") == 0)
+            {
+                token = strtok(NULL, delimiter);
+                unsigned int handler_id=atoi(token);
+                evnext_cmd(handler_id);
+            }else if(strcmp(token, "evclose") == 0){
+                token = strtok(NULL, delimiter);
+                uint16_t handler_id=atoi(token);
+                evclose_cmd(handler_id);
             }
+
 
             i = 0;
             continue;
@@ -288,6 +310,8 @@ unsigned int convertStrUint(char *st)
     }
     return result;
 }
+
+
 
 int hex2int(char ch)
 {

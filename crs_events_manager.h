@@ -35,7 +35,6 @@
 #include <ti/sysbios/knl/Task.h>
 
 typedef struct crs_events {
-   List_Elem elem;
    uint32_t  EventId;
    uint8_t  EventType;
    uint32_t  EventTime;//---NEED TO CHECK HOW MUCH BITS ARE NEDDED!   uint32_t time= Timestamp_get32();
@@ -46,7 +45,7 @@ typedef struct crs_events {
 } crs_Events;
 
 
-
 void *eventsThread(void *arg0);
+#define MAX_CRS_EVENTS_SLOTS 200
 
 #endif /* CRS_EVENTS_MANAGER_H_ */

@@ -85,7 +85,7 @@ int main(void)
 
     Board_init();
 
-
+rand();
     Semaphore_Struct my_semStruct;
     Semaphore_Handle my_semHandle;
     Semaphore_Params semParams;
